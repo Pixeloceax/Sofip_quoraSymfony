@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello HomeController!
+{% endblock %}
+
+
+{% block body %}
+	<nav class="navbar">
+		<div class="navbar-container">
+			<a href="/" class="navbar-logo">MonSite</a>
+			<ul class="navbar-menu">
+				{% if is_granted('IS_AUTHENTICATED_FULLY') %}
+					<li class="navbar-item">
+						<a href="/logout" class="navbar-link">Déconnexion</a>
+					</li>
+				{% else %}
+					<li class="navbar-item">
+						<a href="/login" class="navbar-link">Connexion</a>
+					</li>
+					<li class="navbar-item">
+						<a href="/register" class="navbar-link">Inscription</a>
+					</li>
+				{% endif %}
+			</ul>
+		</div>
+	</nav>
+{% endblock %}
