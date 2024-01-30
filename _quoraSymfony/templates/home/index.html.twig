@@ -9,6 +9,9 @@
 		<div class="navbar-container">
 			<a href="/" class="navbar-logo">MonSite</a>
 			<ul class="navbar-menu">
+				<li class="navbar-item">
+					<a href="/question" class="navbar-link">crée une question</a>
+				</li>
 				{% if is_granted('IS_AUTHENTICATED_FULLY') %}
 					<li class="navbar-item">
 						<a href="/logout" class="navbar-link">Déconnexion</a>
@@ -24,4 +27,10 @@
 			</ul>
 		</div>
 	</nav>
+	<div>
+		{% for question in questions %}
+			<div>{{ question.title }}</div>
+			<div>{{ question.content }}</div>
+		{% endfor %}
+	</div>
 {% endblock %}
